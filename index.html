@@ -8,19 +8,11 @@
 body{
   margin:0;
   height:100vh;
+  background:radial-gradient(circle,#1b1b3a,#000);
   overflow:hidden;
   font-family:cursive;
   color:white;
   text-align:center;
-  background: radial-gradient(circle,#1b1b3a,#000);
-  animation: bgGlow 20s ease-in-out infinite alternate;
-}
-
-/* Background glow */
-@keyframes bgGlow {
-  0% { background: radial-gradient(circle,#1b1b3a,#000); }
-  50% { background: radial-gradient(circle,#2b1b4a,#000); }
-  100% { background: radial-gradient(circle,#1b1b3a,#000); }
 }
 
 /* 🔐 Lock screen */
@@ -51,38 +43,31 @@ body{
 
 /* ❤️ Hearts */
 .heart{
-  position:absolute;
+  width:22px;height:22px;
   background:red;
+  position:absolute;
   transform:rotate(-45deg);
-  animation:float linear forwards;
-  box-shadow: 0 0 12px pink;
+  animation:float 7s linear forwards;
 }
 .heart:before,.heart:after{
   content:"";
-  position:absolute;
+  width:22px;height:22px;
   background:red;
   border-radius:50%;
+  position:absolute;
 }
-.heart:before{top:-50%; left:0;}
-.heart:after{left:50%; top:0;}
+.heart:before{top:-11px;left:0;}
+.heart:after{left:11px;top:0;}
 
-/* Heart animation */
-@keyframes float {
-  to { transform: translateY(-900px) rotate(360deg); opacity:0; }
+@keyframes float{
+  to{ transform:translateY(-900px) rotate(-45deg); opacity:0; }
 }
 
 /* 🌻🌷 Petals */
 .petal{
   position:absolute;
   font-size:26px;
-  animation:drift linear forwards;
-  text-shadow: 0 0 6px yellow;
-}
-
-/* Petal animation */
-@keyframes drift {
-  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity:1; }
-  100% { transform: translateY(-900px) translateX(100px) rotate(360deg); opacity:0; }
+  animation:float 9s linear forwards;
 }
 
 /* 💖 Text */
@@ -99,16 +84,13 @@ body{
 /* 💌 Secret */
 #secret{
   display:none;
-  opacity:0;
   margin:30px;
   padding:22px;
   border-radius:20px;
   background:rgba(255,255,255,0.12);
   line-height:1.7;
   font-size:16px;
-  transition: opacity 1.5s ease-in-out;
 }
-
 button.msg{
   padding:12px 24px;
   border:none;
@@ -139,7 +121,9 @@ button.msg{
 <button class="msg" onclick="playMusic()">Play Music 🎶</button>
 
 <div id="secret">
-“Muthwee i love you so much..entha parayande nnu arilla...nee choychillee...enikku nee deserve anonnu...100% nee enikku deserve anu muthwee....ninakku valentines daykku enthu gift tharanam nu koodi enikku arillaaa....but i promose you that life long njan indavum.....”
+“Muthwee i love you so much..entha parayande nnu arilla...nee choychillee...enikku nee deserve anonnu...100% nee enikku deserve anu muthwee....ninakku valentines daykku enthu gift tharanam nu koodi enikku arillaaa....but i promose you that life long njan indavum.....ninaku njan nalloru home tharum...entha paraye chela samyathu njan vicharikkum ninakku njan deserve cheyyandonnu...because you are a gem muthwee...njan chela samaythu pottine pole enthengilum paranjal manasil vekkandattooo...pinne nee chela pennungale patti parayanathum enikku pidikanillatoo😒..pakshe nee arhu ennodu thurannu parayunnathil....njan bayangara bayangara happy anu muthweee......you deserve more nne parayullu....let god bless me to keep your smile till my last breathe....njan karanam muthwu sangada pedanathu enikku ishtalla...enthokkeya parayane nnu enikku arilla😁..muthwinte koode tym spend cheyyanathu ariya koodilla....venengil muthwintekoode othiri neram njan samsarikkummm😌I LOVE YOU MUTHWE❤️ i love you so much that i will do anything for you....you are my present and my future....എനിക്ക് നിന്റെ കൂടെ എന്റെ ജീവിതകാലം മുഴുവണം പങ്കിടണം ....
+നമക്ക് ഒരു കുഞ്ഞു കൂട്...നിറയെ സ്നേഹം,love,care,affection,peace,നമ്മടെ രണ്ടു ദൈവങ്ങളുടെ blessings,നമ്മടെ families ന്റെ support and love എല്ലാം ഉണ്ടാവണം....
+I really wanna make a new world with you muthweee❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️”
 </div>
 
 <!-- 🎶 MUSIC -->
@@ -158,48 +142,31 @@ function unlock(){
 }
 
 function playMusic(){
-  let m=document.getElementById("music");
-  m.volume = 0.9;
-  m.play();
+  document.getElementById("music").scrollIntoView({behavior:"smooth"});
 }
 
 function toggleMessage(){
   let s=document.getElementById("secret");
-  if(s.style.display==="block"){
-    s.style.opacity=0;
-    setTimeout(()=> s.style.display="none", 1500);
-  }else{
-    s.style.display="block";
-    setTimeout(()=> s.style.opacity=1,50);
-  }
+  s.style.display = s.style.display==="block" ? "none" : "block";
 }
 
-// Hearts
 function heart(){
   let h=document.createElement("div");
   h.className="heart";
-  let size=Math.random()*20 + 15;
-  h.style.width=h.style.height=size+"px";
   h.style.left=Math.random()*innerWidth+"px";
   h.style.bottom="-40px";
-  let duration=Math.random()*5 + 5;
-  h.style.animationDuration=duration+"s";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(), duration*1000);
+  setTimeout(()=>h.remove(),7000);
 }
 
-// Petals
 function petal(){
   let p=document.createElement("div");
   p.className="petal";
   p.innerHTML=Math.random()>0.5?"🌻":"🌷";
-  p.style.fontSize=(Math.random()*20+20)+"px";
   p.style.left=Math.random()*innerWidth+"px";
   p.style.bottom="-40px";
-  let duration=Math.random()*5+6;
-  p.style.animationDuration=duration+"s";
   document.body.appendChild(p);
-  setTimeout(()=>p.remove(),duration*1000);
+  setTimeout(()=>p.remove(),9000);
 }
 
 setInterval(heart,400);
