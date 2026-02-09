@@ -98,7 +98,7 @@ button.msg{
   background:#ff4d6d;
   color:white;
   font-size:16px;
-  margin-top:20px;
+  margin-top:15px;
 }
 </style>
 </head>
@@ -117,6 +117,8 @@ button.msg{
 <div class="sub">I choose you — today, tomorrow, always ❤️</div>
 
 <button class="msg" onclick="toggleMessage()">Open My Heart 💌</button>
+<br>
+<button class="msg" onclick="playMusic()">Play Music 🎶</button>
 
 <div id="secret">
 “Muthwee i love you so much..entha parayande nnu arilla...nee choychillee...enikku nee deserve anonnu...100% nee enikku deserve anu muthwee....ninakku valentines daykku enthu gift tharanam nu koodi enikku arillaaa....but i promose you that life long njan indavum.....ninaku njan nalloru home tharum...entha paraye chela samyathu njan vicharikkum ninakku njan deserve cheyyandonnu...because you are a gem muthwee...njan chela samaythu pottine pole enthengilum paranjal manasil vekkandattooo...pinne nee chela pennungale patti parayanathum enikku pidikanillatoo😒..pakshe nee arhu ennodu thurannu parayunnathil....njan bayangara bayangara happy anu muthweee......you deserve more nne parayullu....let god bless me to keep your smile till my last breathe....njan karanam muthwu sangada pedanathu enikku ishtalla...enthokkeya parayane nnu enikku arilla😁..muthwinte koode tym spend cheyyanathu ariya koodilla....venengil muthwintekoode othiri neram njan samsarikkummm😌I LOVE YOU MUTHWE❤️ i love you so much that i will do anything for you....you are my present and my future....എനിക്ക് നിന്റെ കൂടെ എന്റെ ജീവിതകാലം മുഴുവണം പങ്കിടണം ....
@@ -124,7 +126,7 @@ button.msg{
 I really wanna make a new world with you muthweee❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️”
 </div>
 
-<!-- 🎶 MUSIC (DROPBOX – WORKING) -->
+<!-- 🎶 MUSIC -->
 <audio id="music" loop>
   <source src="https://www.dropbox.com/scl/fi/1lnzsort7l3ckffncw6j2/Neethane.mp3?raw=1" type="audio/mpeg">
 </audio>
@@ -133,12 +135,15 @@ I really wanna make a new world with you muthweee❤️❤️❤️❤️❤️�
 function unlock(){
   if(document.getElementById("pass").value==="a@m130425"){
     document.getElementById("lock").style.display="none";
-    let m=document.getElementById("music");
-    m.volume=0.9;
-    m.play(); // ✅ AUTO PLAY AFTER USER ACTION
   }else{
     alert("Wrong password 💔");
   }
+}
+
+function playMusic(){
+  let m=document.getElementById("music");
+  m.volume=0.9;
+  m.play();
 }
 
 function toggleMessage(){
