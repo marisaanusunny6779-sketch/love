@@ -127,8 +127,9 @@ I really wanna make a new world with you muthweee❤️❤️❤️❤️❤️�
 </div>
 
 <!-- 🎶 MUSIC -->
-<audio id="music" loop>
-  <source src="https://www.dropbox.com/scl/fi/1lnzsort7l3ckffncw6j2/Neethane.mp3?raw=1" type="audio/mpeg">
+<audio id="music" controls loop>
+  <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support audio.
 </audio>
 
 <script>
@@ -141,9 +142,7 @@ function unlock(){
 }
 
 function playMusic(){
-  let m=document.getElementById("music");
-  m.volume=0.9;
-  m.play();
+  document.getElementById("music").scrollIntoView({behavior:"smooth"});
 }
 
 function toggleMessage(){
